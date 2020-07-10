@@ -1,7 +1,30 @@
 .App {
   text-align: center;
 }
+.boutton{
+  text-decoration-color: aliceblue;
+}
+.navHeader{
+  padding-left: 20px;
+  background-color: rgb(25, 25, 92);
+}
+.mainContainer{
+ /*  background-color: rgb(197, 197, 241); */
+ background-image: url("https://www.secureaplus.com/wp-content/uploads/2016/03/SecureAPlus-HomePage-Background.png");
 
+  padding-top: 150px;
+  padding-bottom: 150px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.category{
+  
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

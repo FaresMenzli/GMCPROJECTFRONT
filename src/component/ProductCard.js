@@ -27,6 +27,7 @@ const ProductCard = (props,{match}) => {
                 <p>{e.Category}</p>
                 <p>{e.Prix}</p>
                 <p>{e.Description}</p>
+                <img className="imageproduit"alt="img" src={e.Photo}></img>
         </div></Link>
              </div> )  )}
         </div>

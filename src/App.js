@@ -16,25 +16,9 @@ import Home from './component/Home'
 
 
 function App() {
-  /* const [produit, setProduit] = useState({
-    Name: "",
-    Category: "",
-    Prix: "",
-    Description: "",
-    Photo: "",
-  });  */ 
-  /* const handelChange = (e) => {
-    setContact({ ...contact, [e.target.name]: e.target.value });
-  }; */
-   /* const reset = () => {
-setProduit({
-  Name: "",
-Category: "",
-Prix: "",
-Description: "",
-Photo:""
-});
-};
+ 
+   
+  /*
 const add = () => {
 dispatch(addProduit(produit));
 reset();

@@ -15,7 +15,7 @@ export const getproduits = ()=>(dispatch)=> {
 
 export const addProduit =(newProduit)=>(dispatch)=>{
     axios
-        .post("/api/produits")
-        .then ((res)=>res.dispatch(getproduits()))
+        .post("/api/produits", newProduit)
+        .then ((res)=>dispatch(getproduits()))
         .catch ((err)=>console.log(err))
 }

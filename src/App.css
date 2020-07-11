@@ -1,6 +1,18 @@
 .App {
   text-align: center;
 }
+.inputgroup{
+  width: 300px;
+}
+.ajoutProduit{
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.imageproduit {
+  width: 200px;
+  height: 200px;
+  display: relative;
+}
 .boutton{
   text-decoration-color: aliceblue;
 }

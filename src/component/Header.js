@@ -5,6 +5,7 @@ import {BrowserRouter,Route,Link } from 'react-router-dom'
 import Category from "./Category"
 import Home from "./Home"
 import AddProduct from "./AddProduct"
+import Panier from "./Panier"
 import { addProduit } from '../js/actions/actionsProduit'
 
  const Header = (props) => {
@@ -26,6 +27,9 @@ import { addProduit } from '../js/actions/actionsProduit'
     <li className="btn btn-light "><Link to="/">Home</Link></li>
     <li className="btn btn-light "><Link to="/Category">Category</Link></li>
     <li className="btn btn-light "><Link to="/AddProduct">Ajouter un Produit</Link></li>
+
+    <li className="btn btn-light "><Link to="/Panier">Panier</Link></li>
+
    {/*  <li><Link to="/Product">Product</Link></li>
     <li><Link to="/AdminArena">Admin-Area</Link></li> */}
 
@@ -44,6 +48,8 @@ import { addProduit } from '../js/actions/actionsProduit'
           />
         )}
       />
+      <Route path="/Panier" component={Panier}></Route>
+
 
 
 

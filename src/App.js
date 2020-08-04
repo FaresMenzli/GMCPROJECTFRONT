@@ -35,7 +35,9 @@ reset();
   return (
     
     
+    
     <div >
+       
      <Header  produits={produits}  /* produit={produit} */></Header>
      
      {/* {<Home produits={produits} ></Home> } */}

@@ -8,10 +8,14 @@
   margin-bottom: 10px;
   border-radius: 5px;
 }
+.buttonDetails{
+width:"250px" ;
+margin-bottom: 20px;
+}
 .imageproduit {
   width: 200px;
   height: 200px;
-  display: relative;
+  margin-left: 40px;
 }
 .boutton{
   text-decoration-color: aliceblue;

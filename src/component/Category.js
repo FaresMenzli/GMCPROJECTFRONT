@@ -27,14 +27,14 @@ const Category = ({match}) => {
             <h2 className="text-center"></h2>
            < BrowserRouter>
               <ul className=" mt-4 nav navbar justify-content-around bg-light ">
-    <li><Link to={`${match.url}/cat1`}>cat1</Link></li>
+    <li><Link to={`${match.url}/pc portable`}>pc portable</Link></li>
     <li><Link to={`${match.url}/cat2`}>cat2</Link></li>
     <li><Link to={`${match.url}/cat3`}>cat3</Link></li>
 
   </ul>
   {console.log(produits)}
   
-    <Route path={`${match.path}/:name`} render= {({match}) =>( <div> <h3 className="text-center"> {match.params.name}  </h3> <div><ProductCard produits={affichecategory(match.params.name)}></ProductCard></div></div>)}/>
+    <Route path={`${match.path}/:name`} render= {({match}) =>( <div>  <div><ProductCard produits={affichecategory(match.params.name)}></ProductCard></div></div>)}/>
   </BrowserRouter>
   </div>
         

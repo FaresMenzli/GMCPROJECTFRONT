@@ -1,10 +1,19 @@
 import React,{useState} from 'react'
 import {BrowserRouter,Route,Link} from 'react-router-dom'
 import { Button, Modal } from "react-bootstrap";
-
+import {useDispatch} from "react-redux"
+import {addtocart } from "../js/actions/actionPanier"  
 
 
 const ProductCard = (props,{match}) => {
+  const dispatch = useDispatch() ;
+  const addtopanier = () =>{
+    let porducttoadd = {_id:prod._id, Name:prod.Name ,Category:prod.Category,Prix:prod.Prix,Description:prod.Description ,Photo:prod.Photo}
+    dispatch(addtocart(porducttoadd))
+    handleClose()
+  }
+
+  //
 
     const [prod, setProd] = useState({Name:"",Category:"",Prix:"",Description:""})
     const [show, setShow] = useState(false);
@@ -25,19 +34,19 @@ const ProductCard = (props,{match}) => {
         <BrowserRouter>
         
         
-        <div className="mainContainer"  >
+        <div className="mainContainer "  >
             {props.produits.map((e )=>(
                <div className="text-center"key={e._id}>
                 {/* <Link  to={`/produit/${e._id}` }>   */}
               
                   {/*   {console.log(e._id)}
                     {console.log("fares")} */}
-             <div key={e._id}  className="card border-primary mb-2" style={{ width: '18rem' }}>
-                <p>  {e.Name}</p>
-                <p>{e.Category}</p>
+             <div key={e._id}  className="card border-primary mb-5 mr-5 mt-5 cardCust" >
+                <p className="  card-header  "><b>{e.Category}</b></p>
+                <p className="mt-3 text-primary"> <b> {e.Name}</b></p>
                 <p>{e.Prix}</p>
                 <p>{e.Description}</p>
-                <img className="imageproduit"alt="img" src={e.Photo}></img>
+                <img className=" imageproduit "alt="img" src={e.Photo}></img>
 
                 <Link  to={`/produit/${e._id}` }>  
                 <Button className="buttonDetails" variant="success"  onClick={handleShow} >
@@ -83,7 +92,7 @@ const ProductCard = (props,{match}) => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={addtopanier}>
               Ajouter au Panier
             </Button>
           </Modal.Footer>

@@ -1,41 +1,49 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {useSelector } from "react-redux"
+import {useDispatch} from "react-redux"
+import {deletecart } from "../js/actions/actionPanier"  
 
 const Panier = () => {
+  
+ const dispatch = useDispatch() ;
+  const deleteFromCart = (id) => {
+    
 
-    let panierproduct = [{
-        "_id": {
-          "$oid": "5f064aaf5ad6823cef84c650"
-        },
-        "Name": "Toshiba",
-        "Category": "pc portable",
-        "Prix": "1000",
-        "Description": "Description1",
-        "Photo": "https://www.cdiscount.com/pdt2/1/2/0/1/300x300/sfith14a64w120/rw/thomson-pc-portable-disque-dur-externe-120go-t.jpg"
-      },{
-        "_id": {
-          "$oid": "5f064aaf5ad6823cef84c651"
-        },
-        "Name": "HP",
-        "Category": "pc portable",
-        "Prix": "10",
-        "Description": "Description1",
-        "Photo": "https://www.tunisianet.com.tn/109331-large/pc-portable-hp-15-da0001nk-i3-7e-gen-24-go-blanc-sim-orange-offerte-30-go.jpg"
-      }]
+    dispatch(deletecart(id))
+  }
+  const addcartdb = () => {
+   
+  //dispatch(());
+  
+};
+
+ 
+
+   
+      const panier =useSelector((state)=> state.reducerPanier.panier)
+      let total=0
     return (
-        <div>
-            <table>
-            {panierproduct.map((e)=>
-            <tr><td>{e.Name}</td>
+        <div className=" cartBackground" style={{height:"720px"}}>
+            <table className="container table mt-5">
+              <tbody>
+            {panier.map((e)=>
+            
+            <tr key={e._id} ><td>{e.Name}</td>
+            <td style={{display:"none"}}>{total= total+ parseInt(e.Prix)}</td>
             <td>{e.Prix}</td>
             <td><img height="60px" width="60px" src={e.Photo} ></img></td>
-            
-            
+            <td><input name={e._id} type="image"src="https://img.icons8.com/cotton/2x/delete-sign--v2.png"width="20px" height="20px" alt="img"  onClick={()=>deleteFromCart(e._id)}></input></td>
             
             </tr>
-            
+         
+         
            )}
-
+ </tbody>
+ <tfoot><tr > <span style={{fontSize: "100%"}} className="mt-5 container badge badge-pill badge-success">le totale est de {total} D.T</span></tr></tfoot>
 </table>
+<div  className=" mt-5 mb-5 d-flex justify-content-center">
+<button className="  btn btn-outline-success"> Confirmer la commande</button>
+</div>      
             
         </div>
     )

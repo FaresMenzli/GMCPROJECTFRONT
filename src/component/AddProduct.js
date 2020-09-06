@@ -4,7 +4,12 @@ import {useDispatch, useSelector} from "react-redux"
 import {useEffect,useState} from "react" 
 import {getproduits ,addProduit} from "../js/actions/actionsProduit"  
 
+
+
+
 const AddProduct = (/* { handelChange, action, produit, isEdit } */) => {
+  
+  
      const [produit, setProduit] = useState({
     Name: "",
     Category: "",
@@ -19,6 +24,7 @@ const AddProduct = (/* { handelChange, action, produit, isEdit } */) => {
     dispatch(getproduits());})
      const handelChange = (e) => {
     setProduit({ ...produit, [e.target.name]: e.target.value });
+    console.log(produit)
   };
    const reset = () => {
 setProduit({
@@ -29,10 +35,14 @@ Description: "",
 Photo:"",
 });
 };
+
   const add = () => {
       console.log(produit)
+    
     dispatch(addProduit(produit));
     reset();
+    //alert.success("");
+    alert("Produit ajouté");
   };
   return (
    
@@ -50,13 +60,21 @@ Photo:"",
          value={produit.Name} 
       />
 
-      <input className="ajoutProduit"
+     {/*  <input className="ajoutProduit"
         name="Category"
         type="text"
         placeholder="Category..."
         onChange={handelChange}
        value={produit.Category}
-      />
+      /> */}
+      <select   name="Category"  onChange={handelChange} className="ajoutProduit">
+      <option selected>Select Category</option>
+    <option  value="Gaming">Gaming</option>
+    <option  value="Telephone" >Telephone</option>
+    <option  value="pc protable"  >pc portable</option>
+    
+    
+  </select>
 
       <input className="ajoutProduit"
         name="Prix"
@@ -82,12 +100,12 @@ Photo:"",
 
 
       
-        <input className="btn btn-outline-secondary"
+        <button className="btn btn-success"
           type="button"
           value="add"
-          className="add-button"
-          onClick={add}
-        />
+         // className="add-button"
+          onClick={add }>Ajouter
+          </button>
        </div>
     </div>
   );

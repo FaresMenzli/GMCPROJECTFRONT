@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-
+import {useSelector} from "react-redux"
 
 import {BrowserRouter,Route,Link } from 'react-router-dom'
 import Category from "./Category"
@@ -16,6 +16,7 @@ import { addProduit } from '../js/actions/actionsProduit'
     dispatch(getproduits());
    
   }, [])  */
+  let nbrePanier = (useSelector((state)=> state.reducerPanier.panier).length)
 
 
    
@@ -28,7 +29,7 @@ import { addProduit } from '../js/actions/actionsProduit'
     <li className="btn btn-light "><Link to="/Category">Category</Link></li>
     <li className="btn btn-light "><Link to="/AddProduct">Ajouter un Produit</Link></li>
 
-    <li className="btn btn-light "><Link to="/Panier">Panier</Link></li>
+    <li className="btn btn-light "><Link to="/Panier"><input type="image" width="30px" src="https://www.icone-png.com/png/13/13364.png"></input><strong className="text-danger">({nbrePanier})</strong></Link></li>
 
    {/*  <li><Link to="/Product">Product</Link></li>
     <li><Link to="/AdminArena">Admin-Area</Link></li> */}

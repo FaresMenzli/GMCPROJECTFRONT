@@ -10,7 +10,7 @@ import ProductCard from "./ProductCard"
 const Category = ({match}) => {
   const dispatch = useDispatch() ;
     //3 59:18
-    const produits =useSelector((state)=> state.products)
+    const produits =useSelector((state)=> state.reducerProduit.products)
   useEffect(() => {
     dispatch(getproduits());
    
@@ -22,22 +22,23 @@ const Category = ({match}) => {
 
     return (
      
-        <div className="mt-3">
+        <div className="">
           {console.log(match.url)}
             <h2 className="text-center"></h2>
            < BrowserRouter>
-              <ul className=" mt-4 nav navbar justify-content-around bg-light ">
-    <li><Link to={`${match.url}/pc portable`}>pc portable</Link></li>
-    <li><Link to={`${match.url}/cat2`}>cat2</Link></li>
-    <li><Link to={`${match.url}/cat3`}>cat3</Link></li>
+              <ul className="  nav navbar justify-content-around  " style={{marginTop:"-8px" , backgroundColor:"#36C1DC"}}>
+    <li><Link to={`${match.url}/pc portable`}><i className="text-light">Pc Portable</i></Link></li>
+    <li ><Link to={`${match.url}/Telephone`}><i className="text-light">Telephone</i></Link></li>
+    <li><Link to={`${match.url}/Gaming`}><i className="text-light">Gaming</i></Link></li>
 
   </ul>
   {console.log(produits)}
   
-    <Route path={`${match.path}/:name`} render= {({match}) =>( <div>  <div><ProductCard produits={affichecategory(match.params.name)}></ProductCard></div></div>)}/>
+    <Route  path={`${match.path}/:name`} render= {({match}) =>( <div>  <div><ProductCard produits={affichecategory(match.params.name)}></ProductCard></div></div>)}/>
   </BrowserRouter>
+  <div className="mainContainer text-light font-weight-bold mb-5"> </div>
   </div>
-        
+  
     )
 }
 

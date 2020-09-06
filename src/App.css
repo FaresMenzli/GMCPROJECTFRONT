@@ -35,6 +35,18 @@ margin-bottom: 20px;
   justify-content: space-around;
   flex-wrap: wrap;
 }
+.cartBackground{
+  background-color: #FFFFFF ;
+
+}
+.cardCust{
+width: 18rem;
+box-shadow:3px 3px 5px;
+border-radius:10px }
+
+.cardCust:hover {
+  transform: scale(1.1); 
+}
 .category{
   
   margin-top: 40px;

@@ -26,7 +26,7 @@ reset();
  
    const dispatch = useDispatch() ;
     //3 59:18
-    const produits =useSelector((state)=> state.products)
+    const produits =useSelector((state)=> state.reducerProduit.products)
   useEffect(() => {
     dispatch(getproduits());
    
